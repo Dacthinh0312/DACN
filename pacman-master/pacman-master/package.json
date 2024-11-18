@@ -1,0 +1,20 @@
+{
+  "name": "pacman",
+  "version": "1.0.0",
+  "description": "Everyone's favorite arcade game",
+  "main": "pacman.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "bash build.sh; next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  
+  "devDependencies": {
+    "eslint": "8.40.0",
+    "eslint-config-next": "13.4.2"
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Kết nối đến các tệp script chứa các hàm vẽ và hướng di chuyển -->
+<script src="../src/direction.js"></script> <!-- Chứa các hằng số và hàm định hướng di chuyển (ví dụ: DIR_RIGHT) -->
+<script src="../src/sprites.js"></script> <!-- Chứa các hàm để vẽ sprite (ví dụ: drawPacmanSprite) -->
+</head>
+<body>
+<!-- Tạo hai canvas, mỗi canvas dùng để vẽ Pac-Man với kích thước khác nhau -->
+<canvas id='canvas'></canvas> <!-- Canvas chính với kích thước lớn hơn -->
+<canvas id='canvas2'></canvas> <!-- Canvas phụ với kích thước nhỏ hơn -->
+
+<script>
+window.onload = function() {
+    // Lấy đối tượng canvas đầu tiên và thiết lập kích thước của nó
+    var canvas = document.getElementById('canvas');
+    canvas.height = canvas.width = 144; // Thiết lập chiều rộng và chiều cao của canvas là 144px
+    var ctx = canvas.getContext('2d'); // Lấy bối cảnh vẽ 2D
+    ctx.fillStyle = "#000"; // Thiết lập màu nền là đen
+    //ctx.fillRect(0,0,canvas.width,canvas.height); // Dòng này bị chú thích, sẽ tô màu đen toàn bộ canvas nếu mở lại
+    // Vẽ sprite Pac-Man tại vị trí trung tâm canvas với hướng sang phải (DIR_RIGHT) và góc quay là Math.PI/6
+    drawPacmanSprite(ctx, canvas.width/2, canvas.height/2, DIR_RIGHT, Math.PI/6, undefined, 9);
+
+    // Lấy đối tượng canvas thứ hai và thiết lập kích thước của nó
+    canvas = document.getElementById('canvas2');
+    canvas.height = canvas.width = 32; // Thiết lập chiều rộng và chiều cao của canvas2 là 32px
+    var ctx = canvas.getContext('2d'); // Lấy bối cảnh vẽ 2D cho canvas2
+    ctx.fillStyle = "#000"; // Thiết lập màu nền là đen cho canvas2
+    //ctx.fillRect(0,0,canvas.width,canvas.height); // Dòng này bị chú thích, sẽ tô màu đen toàn bộ canvas nếu mở lại
+    // Vẽ sprite Pac-Man tại vị trí trung tâm canvas2 với hướng sang phải (DIR_RIGHT) và góc quay là Math.PI/6
+    drawPacmanSprite(ctx, canvas.width/2, canvas.height/2, DIR_RIGHT, Math.PI/6, undefined, 1.8);
+};
+
+</script>
+</body>
+</html>
